@@ -1,15 +1,8 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-toolbar-title> Quasar App </q-toolbar-title>
-
-        <div>
-          <q-btn outline @click="signOutt" color="white" label="Sign Out" />
-        </div>
-      </q-toolbar>
-    </q-header>
-
+    <q-footer class="bg-primary text-white">
+      <BottomNavigation />
+    </q-footer>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -19,9 +12,13 @@
 <script>
 import { defineComponent, ref } from "vue";
 import { signOut } from "firebase/auth";
+import BottomNavigation from "../components/BottomNavigation.vue";
 
 export default defineComponent({
   name: "MainLayout",
+  components: {
+    BottomNavigation,
+  },
   methods: {
     signOutt() {
       signOut(this.$auth)

@@ -1,23 +1,95 @@
 <template>
-  <q-page v-if="user">
-    <div class="text-hr q-pa-md">
-      <h3>Welcome {{ user.fullname }}</h3>
+  <q-page
+    v-if="user"
+    style="background-color: #113f61; color: white"
+    class="q-pa-md"
+  >
+    <div class="row full-height items-center q-mb-md">
+      <div class="col">
+        <q-icon
+          name="account_circle"
+          style="color: #bea563"
+          size="2.5rem"
+          class="q-ml-sm q-mr-sm"
+        />
+      </div>
+      <div class="col">
+        <div class="float-right">Welcome, {{ user.fullname }}</div>
+      </div>
     </div>
-    <div class="row">
-      <div class="col-12 q-pa-sm" v-for="account in account" :key="account.id">
-        <q-card
-          class="my-card text-white"
-          style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
-        >
-          <q-card-section>
-            <div class="text-h6">{{ account.no }}</div>
-            <div class="text-subtitle2">{{ account.data.type }}</div>
-          </q-card-section>
-
-          <q-card-section class="q-pt-none text-h4 text-right">
-            {{ account.data.balance }}
-          </q-card-section>
-        </q-card>
+    <!-- ---------------------------------------------------------------- -->
+    <q-card class="q-mb-md">
+      <q-img
+        src="https://hwc-statics.ais.th/asset_index2020/images/herobanner/2022/05/AIS_Fibre_Cybrox_Project_banner_1040x1040_th.jpg"
+        style="height: 100px"
+      />
+    </q-card>
+    <!-- ---------------------------------------------------------------- -->
+    <HomeNavigation class="q-mb-md" />
+    <!-- ---------------------------------------------------------------- -->
+    <div class="q-mb-md">
+      <div class="text-h6 row">Favorites</div>
+      <div class="row items-center" align="center">
+        <div class="col-3">
+          <q-icon
+            name="account_circle"
+            size="3rem"
+            style="color: #bea563"
+            class="row"
+          />
+          <div>Alex</div>
+        </div>
+        <div class="col-3">
+          <q-icon
+            name="account_circle"
+            size="3rem"
+            style="color: #bea563"
+            class="row"
+          />
+          <div>Noella</div>
+        </div>
+        <div class="col-3">
+          <q-icon
+            name="account_circle"
+            size="3rem"
+            style="color: #bea563"
+            class="row"
+          />
+          <div>Hedwig</div>
+        </div>
+        <div class="col-3">
+          <q-icon
+            name="add_circle"
+            size="3rem"
+            style="color: #bea563"
+            class="row"
+          />
+          <div>Add more</div>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------------------------------------------------------- -->
+    <div>
+      <div class="text-h6 row">Promotions</div>
+      <div class="row">
+        <div class="col-4 q-pa-sm">
+          <q-card>
+            <q-img
+              src="https://hwc-statics.ais.th/asset_index2020/images/herobanner/2022/05/AIS_Fibre_Cybrox_Project_banner_1040x1040_th.jpg"
+          /></q-card>
+        </div>
+        <div class="col-4 q-pa-sm">
+          <q-card>
+            <q-img
+              src="https://hwc-statics.ais.th/asset_index2020/images/herobanner/2022/05/AIS_Fibre_Cybrox_Project_banner_1040x1040_th.jpg"
+          /></q-card>
+        </div>
+        <div class="col-4 q-pa-sm">
+          <q-card>
+            <q-img
+              src="https://hwc-statics.ais.th/asset_index2020/images/herobanner/2022/05/AIS_Fibre_Cybrox_Project_banner_1040x1040_th.jpg"
+          /></q-card>
+        </div>
       </div>
     </div>
   </q-page>
@@ -28,46 +100,24 @@ import { defineComponent } from "vue";
 import { getDocs } from "firebase/firestore";
 import { collection, query, where } from "firebase/firestore";
 import { onAuthStateChanged } from "@firebase/auth";
+import HomeNavigation from "../components/HomeNavigation.vue";
+import { useMockServer } from "stores/server";
 
 export default defineComponent({
   name: "IndexPage",
+  components: { HomeNavigation },
   created() {},
   async mounted() {
-    onAuthStateChanged(this.$auth, async (user) => {
-      if (user) {
-        const uid = user.id;
-        console.log(user.email);
-        this.singnedInUser.email = user.email;
-        const usersRef = collection(this.$db, "users");
-        const q = query(usersRef, where("email", "==", user.email));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach(async (doc) => {
-          console.log(doc.id, "=>", doc.data().fullname);
-          this.user = doc.data();
-          const accountRef = collection(this.$db, "account");
-          const aq = query(accountRef, where("owner", "==", doc.id));
-          const aqSnapshot = await getDocs(aq);
-          aqSnapshot.forEach(async (doc) => {
-            console.log(doc.id, "=>", doc.data().balance);
-            const account = {
-              no: doc.id,
-              data: doc.data,
-            };
-            this.account.push(account);
-          });
-        });
-      } else {
+    useMockServer().getBankAccount(this.$auth, this.$db, (err, res) => {
+      if (err) {
         this.$router.push("/signin");
       }
+      this.user = res.user;
     });
   },
   data() {
     return {
       user: null,
-      singnedInUser: {
-        email: null,
-      },
-      account: [],
     };
   },
 });

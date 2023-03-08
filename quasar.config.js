@@ -130,8 +130,8 @@ module.exports = configure(function (ctx) {
       chainWebpackCustomSW(/* chain */) {},
 
       manifest: {
-        name: `Quasar App`,
-        short_name: `Quasar App`,
+        name: `CashCraft`,
+        short_name: `CashCraft`,
         description: `A cashcarft banking project`,
         display: "standalone",
         orientation: "portrait",

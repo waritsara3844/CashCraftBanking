@@ -2,7 +2,7 @@
   "name": "cashcraft-banking",
   "version": "0.0.1",
   "description": "A cashcarft banking project",
-  "productName": "Quasar App",
+  "productName": "Cash Craft",
   "author": "waritsara3844",
   "private": true,
   "scripts": {
@@ -14,8 +14,11 @@
     "core-js": "^3.6.5",
     "filebase": "^0.0.1",
     "firebase": "^9.17.1",
+    "pinia": "^2.0.33",
+    "qrious": "^4.0.2",
     "quasar": "^2.6.0",
     "vue": "^3.0.0",
+    "vue-qrcode-reader": "^3.1.2",
     "vue-router": "^4.0.0"
   },
   "devDependencies": {
