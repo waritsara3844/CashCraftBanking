@@ -16,7 +16,7 @@
       <q-icon name="sync_alt" size="1.8rem" class="row" />
       <div class="text-grey text-caption">Transter</div>
     </q-route-tab>
-    <q-route-tab to="/" label="" no-caps>
+    <q-route-tab to="/setting" label="" no-caps>
       <q-icon name="settings  " size="1.8rem" class="row" />
       <div class="text-grey text-caption">Setting</div>
     </q-route-tab>

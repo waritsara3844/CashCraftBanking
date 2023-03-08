@@ -5,7 +5,7 @@
     class="q-pa-md"
   >
     <div class="row full-height items-center q-mb-md">
-      <div class="col">
+      <div class="col-2">
         <q-icon
           name="account_circle"
           style="color: #bea563"
@@ -75,19 +75,22 @@
         <div class="col-4 q-pa-sm">
           <q-card>
             <q-img
-              src="https://hwc-statics.ais.th/asset_index2020/images/herobanner/2022/05/AIS_Fibre_Cybrox_Project_banner_1040x1040_th.jpg"
+              src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/a4dd4d19866801.562e1989d3b17.jpg"
+              style="height: 150px"
           /></q-card>
         </div>
         <div class="col-4 q-pa-sm">
           <q-card>
             <q-img
-              src="https://hwc-statics.ais.th/asset_index2020/images/herobanner/2022/05/AIS_Fibre_Cybrox_Project_banner_1040x1040_th.jpg"
+              src="https://www.gsb.or.th/media/2020/11/Ad.jpg"
+              style="height: 150px"
           /></q-card>
         </div>
         <div class="col-4 q-pa-sm">
           <q-card>
             <q-img
-              src="https://hwc-statics.ais.th/asset_index2020/images/herobanner/2022/05/AIS_Fibre_Cybrox_Project_banner_1040x1040_th.jpg"
+              src="https://www.kasikornbank.com/th/promotion/credit-card/others/publishingimages/KSME01062021.jpg"
+              style="height: 150px"
           /></q-card>
         </div>
       </div>
