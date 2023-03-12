@@ -30,15 +30,15 @@ export const useMockServer = defineStore("counter", {
             aqSnapshot.forEach(async (doc) => {
               const account = {
                 no: doc.id,
-                account: doc.data(),
                 user: user,
+                account: doc.data(),
               };
-              result(null, account);
+              result(null, account); //null check error
               return;
             });
           });
         } else {
-          result(true, null);
+          result(true, null); //have error
           return;
         }
       });
@@ -78,6 +78,21 @@ export const useMockServer = defineStore("counter", {
         if (user) {
           const usersRef = collection(db, "users");
           const q = query(usersRef, where("telno", "==", tel));
+          const querySnapshot = await getDocs(q);
+          querySnapshot.forEach(async (doc) => {
+            result(null, doc.data());
+            return;
+          });
+        } else {
+          result(true, null);
+        }
+      });
+    },
+    getAmountByRef(auth, db, ref, result) {
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          const billRef = collection(db, "bills");
+          const q = query(billRef, where("ref", "==", ref));
           const querySnapshot = await getDocs(q);
           querySnapshot.forEach(async (doc) => {
             result(null, doc.data());

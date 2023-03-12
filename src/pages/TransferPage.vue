@@ -113,8 +113,10 @@ export default defineComponent({
     UserCard,
   },
   async mounted() {
-    const data = JSON.parse(this.$route.query.data);
-    this.txt_to = data.to;
+    try {
+      const data = JSON.parse(this.$route.query.data);
+      this.txt_to = data.to;
+    } catch (e) {}
     useMockServer().getBankAccount(this.$auth, this.$db, (err, res) => {
       if (err) {
         this.$router.push("/signin");

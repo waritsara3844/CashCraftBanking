@@ -1,6 +1,6 @@
 <template>
   <q-tabs align="center" style="color: #bea563; background-color: white">
-    <q-route-tab to="/" label="" no-caps
+    <q-route-tab to="/home" label="" no-caps
       ><q-icon name="home" size="1.8rem" class="row" />
       <div class="text-grey text-caption">Home</div></q-route-tab
     >

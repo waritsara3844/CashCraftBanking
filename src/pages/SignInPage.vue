@@ -71,7 +71,7 @@ export default defineComponent({
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          this.$router.push("/");
+          this.$router.push("/home");
         })
         .catch((error) => {
           const errorCode = error.code;

@@ -9,7 +9,7 @@
         ><q-icon name="account_balance_wallet" size="1.8rem" class="row" />
         <div class="text-grey">Top-up</div></q-btn
       >
-      <q-btn class="col-3" flat no-caps padding="sm"
+      <q-btn class="col-3" flat no-caps padding="sm" to="/paybill"
         ><q-icon name="request_quote" size="1.8rem" class="row" />
         <div class="text-grey">Pay Bills</div></q-btn
       >
