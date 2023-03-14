@@ -50,7 +50,7 @@
             style="background-color: #bea563; color: white"
             no-caps
             @click="this.transter()"
-            >Confirm Transter</q-btn
+            >Confirm Transfer</q-btn
           >
         </div>
       </q-page></q-page-container

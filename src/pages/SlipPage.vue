@@ -10,7 +10,7 @@
             class="float-center col-12"
           />
           <div class="col-12 text-center text-green text-h6">
-            Successfully transter
+            Successfully Transfer
           </div>
         </div>
         <!-- ------------------------------ -->

@@ -11,7 +11,7 @@
             flat
             @click="this.$router.go(-1)"
           />
-          <div class="col-4 text-center text-h6 text-white">Transter</div>
+          <div class="col-4 text-center text-h6 text-white">Transfer</div>
         </div>
         <!-- ------------------------------ -->
         <!-- ---------------------------------------------------------------- -->

@@ -45,7 +45,7 @@
         class="full-width"
         flat
         style="background-color: #bea563; color: white"
-        label="logout"
+        label="log out"
         @click="this.signOut()"
       />
     </div>

@@ -3,7 +3,7 @@
     ><q-card-section class="row items-center" align="center"
       ><q-btn class="col-3" flat no-caps to="/transfer"
         ><q-icon name="sync_alt" size="1.8rem" class="row" />
-        <div class="text-grey">Transter</div></q-btn
+        <div class="text-grey">Transfer</div></q-btn
       >
       <q-btn class="col-3" flat no-caps
         ><q-icon name="account_balance_wallet" size="1.8rem" class="row" />
@@ -19,7 +19,7 @@
       >
       <q-btn class="col-3" flat no-caps padding="sm"
         ><q-icon name="credit_card" size="1.8rem" class="row" />
-        <div class="text-grey">Cards</div></q-btn
+        <div class="text-grey">C-Cards</div></q-btn
       >
       <q-btn class="col-3" flat no-caps padding="sm" to="/myqrcode"
         ><q-icon name="fullscreen" size="1.8rem" class="row" />
